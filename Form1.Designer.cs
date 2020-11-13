@@ -28,46 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.directoryPathTextBox = new System.Windows.Forms.TextBox();
-            this.replsceTextInSubDirectoryLabel = new System.Windows.Forms.Label();
-            this.replsceTextInSubDirectoryCheckBox = new System.Windows.Forms.CheckBox();
+            this.pathTextBox = new System.Windows.Forms.TextBox();
+            this.replaceTextInSubDirectoryLabel = new System.Windows.Forms.Label();
+            this.replaceTextInSubDirectoryCheckBox = new System.Windows.Forms.CheckBox();
             this.replaceableTextBox = new System.Windows.Forms.TextBox();
             this.replacementTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.currentFileLabel = new System.Windows.Forms.Label();
+            this.processLabel = new System.Windows.Forms.Label();
             this.replaceButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // directoryPathTextBox
+            // pathTextBox
             // 
-            this.directoryPathTextBox.Location = new System.Drawing.Point(12, 41);
-            this.directoryPathTextBox.Name = "directoryPathTextBox";
-            this.directoryPathTextBox.Size = new System.Drawing.Size(383, 22);
-            this.directoryPathTextBox.TabIndex = 0;
-            this.directoryPathTextBox.TextChanged += new System.EventHandler(this.directoryPathTextBox_TextChanged);
+            this.pathTextBox.Location = new System.Drawing.Point(12, 41);
+            this.pathTextBox.Name = "pathTextBox";
+            this.pathTextBox.Size = new System.Drawing.Size(383, 22);
+            this.pathTextBox.TabIndex = 0;
+            this.pathTextBox.TextChanged += new System.EventHandler(this.directoryPathTextBox_TextChanged);
             // 
-            // replsceTextInSubDirectoryLabel
+            // replaceTextInSubDirectoryLabel
             // 
-            this.replsceTextInSubDirectoryLabel.AutoSize = true;
-            this.replsceTextInSubDirectoryLabel.Location = new System.Drawing.Point(12, 66);
-            this.replsceTextInSubDirectoryLabel.Name = "replsceTextInSubDirectoryLabel";
-            this.replsceTextInSubDirectoryLabel.Size = new System.Drawing.Size(247, 17);
-            this.replsceTextInSubDirectoryLabel.TabIndex = 1;
-            this.replsceTextInSubDirectoryLabel.Text = "Заменить текст в поддеректориаях:";
-            this.replsceTextInSubDirectoryLabel.Visible = false;
+            this.replaceTextInSubDirectoryLabel.AutoSize = true;
+            this.replaceTextInSubDirectoryLabel.Location = new System.Drawing.Point(12, 66);
+            this.replaceTextInSubDirectoryLabel.Name = "replaceTextInSubDirectoryLabel";
+            this.replaceTextInSubDirectoryLabel.Size = new System.Drawing.Size(247, 17);
+            this.replaceTextInSubDirectoryLabel.TabIndex = 1;
+            this.replaceTextInSubDirectoryLabel.Text = "Заменить текст в поддеректориаях:";
+            this.replaceTextInSubDirectoryLabel.Visible = false;
             // 
-            // replsceTextInSubDirectoryCheckBox
+            // replaceTextInSubDirectoryCheckBox
             // 
-            this.replsceTextInSubDirectoryCheckBox.AutoSize = true;
-            this.replsceTextInSubDirectoryCheckBox.Location = new System.Drawing.Point(265, 67);
-            this.replsceTextInSubDirectoryCheckBox.Name = "replsceTextInSubDirectoryCheckBox";
-            this.replsceTextInSubDirectoryCheckBox.Size = new System.Drawing.Size(18, 17);
-            this.replsceTextInSubDirectoryCheckBox.TabIndex = 2;
-            this.replsceTextInSubDirectoryCheckBox.UseVisualStyleBackColor = true;
-            this.replsceTextInSubDirectoryCheckBox.Visible = false;
+            this.replaceTextInSubDirectoryCheckBox.AutoSize = true;
+            this.replaceTextInSubDirectoryCheckBox.Location = new System.Drawing.Point(265, 67);
+            this.replaceTextInSubDirectoryCheckBox.Name = "replaceTextInSubDirectoryCheckBox";
+            this.replaceTextInSubDirectoryCheckBox.Size = new System.Drawing.Size(18, 17);
+            this.replaceTextInSubDirectoryCheckBox.TabIndex = 2;
+            this.replaceTextInSubDirectoryCheckBox.UseVisualStyleBackColor = true;
+            this.replaceTextInSubDirectoryCheckBox.Visible = false;
             // 
             // replaceableTextBox
             // 
@@ -119,13 +119,13 @@
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar.TabIndex = 9;
             // 
-            // currentFileLabel
+            // processLabel
             // 
-            this.currentFileLabel.AutoSize = true;
-            this.currentFileLabel.Location = new System.Drawing.Point(12, 196);
-            this.currentFileLabel.Name = "currentFileLabel";
-            this.currentFileLabel.Size = new System.Drawing.Size(0, 17);
-            this.currentFileLabel.TabIndex = 10;
+            this.processLabel.AutoSize = true;
+            this.processLabel.Location = new System.Drawing.Point(12, 196);
+            this.processLabel.Name = "processLabel";
+            this.processLabel.Size = new System.Drawing.Size(0, 17);
+            this.processLabel.TabIndex = 10;
             // 
             // replaceButton
             // 
@@ -142,7 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 251);
-            this.Controls.Add(this.currentFileLabel);
+            this.Controls.Add(this.processLabel);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
@@ -150,9 +150,9 @@
             this.Controls.Add(this.replaceButton);
             this.Controls.Add(this.replacementTextBox);
             this.Controls.Add(this.replaceableTextBox);
-            this.Controls.Add(this.replsceTextInSubDirectoryCheckBox);
-            this.Controls.Add(this.replsceTextInSubDirectoryLabel);
-            this.Controls.Add(this.directoryPathTextBox);
+            this.Controls.Add(this.replaceTextInSubDirectoryCheckBox);
+            this.Controls.Add(this.replaceTextInSubDirectoryLabel);
+            this.Controls.Add(this.pathTextBox);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -162,16 +162,16 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox directoryPathTextBox;
-        private System.Windows.Forms.Label replsceTextInSubDirectoryLabel;
-        private System.Windows.Forms.CheckBox replsceTextInSubDirectoryCheckBox;
+        private System.Windows.Forms.TextBox pathTextBox;
+        private System.Windows.Forms.Label replaceTextInSubDirectoryLabel;
+        private System.Windows.Forms.CheckBox replaceTextInSubDirectoryCheckBox;
         private System.Windows.Forms.TextBox replaceableTextBox;
         private System.Windows.Forms.TextBox replacementTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Label currentFileLabel;
+        private System.Windows.Forms.Label processLabel;
         private System.Windows.Forms.Button replaceButton;
     }
 }

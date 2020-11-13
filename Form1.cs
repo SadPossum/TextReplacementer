@@ -13,36 +13,45 @@ namespace TextReplacementer
 
         private void replaceButton_Click(object sender, EventArgs e)
         {
-            progressBar.Value = progressBar.Minimum;
-
-            if (directoryPathTextBox.Text != "" && 
-                (File.Exists(directoryPathTextBox.Text) || Directory.Exists(directoryPathTextBox.Text)))
+            //Проверка введен ли путь
+            if (!String.IsNullOrWhiteSpace(pathTextBox.Text))
             {
-                progressBar.Maximum = FileSystem.GetNumberOfFiles(directoryPathTextBox.Text, true);
+                progressBar.Value = progressBar.Minimum;
+                progressBar.Maximum = FileSystem.GetNumberOfFiles(pathTextBox.Text, true);
 
-                foreach (string file in Directory.EnumerateFiles(directoryPathTextBox.Text, "*",
-                    replsceTextInSubDirectoryCheckBox.Checked == true ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
+                //Проверка является ли путь указанием на папку или файл
+                if (File.Exists(pathTextBox.Text))
                 {
-                    currentFileLabel.Text = file;
-                    FileSystem.ReplaceText(file, replaceableTextBox.Text, replacementTextBox.Text);
+                    FileSystem.ReplaceText(pathTextBox.Text, replaceableTextBox.Text, replacementTextBox.Text);
                     progressBar.Value++;
+                    processLabel.Text = "готово";
                 }
-
-                currentFileLabel.Text = "готово";
+                else if (Directory.Exists(pathTextBox.Text))
+                {
+                    foreach (string file in Directory.EnumerateFiles(pathTextBox.Text, "*",
+                    replaceTextInSubDirectoryCheckBox.Checked == true ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
+                    {
+                        processLabel.Text = file;
+                        FileSystem.ReplaceText(file, replaceableTextBox.Text, replacementTextBox.Text);
+                        progressBar.Value++;
+                    }
+                    processLabel.Text = "готово";
+                }
+                processLabel.Text = "Файл не найден или директория не найдены";
             }
         }
 
         private void directoryPathTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (File.Exists(directoryPathTextBox.Text))
+            if (File.Exists(pathTextBox.Text))
             {
-                replsceTextInSubDirectoryLabel.Visible = false;
-                replsceTextInSubDirectoryCheckBox.Visible = false;
+                replaceTextInSubDirectoryLabel.Visible = false;
+                replaceTextInSubDirectoryCheckBox.Visible = false;
             }
-            else if (Directory.Exists(directoryPathTextBox.Text))
+            else if (Directory.Exists(pathTextBox.Text))
             {
-                replsceTextInSubDirectoryLabel.Visible = true;
-                replsceTextInSubDirectoryCheckBox.Visible = true;
+                replaceTextInSubDirectoryLabel.Visible = true;
+                replaceTextInSubDirectoryCheckBox.Visible = true;
             }
         }
     }
